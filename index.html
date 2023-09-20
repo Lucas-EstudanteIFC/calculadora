@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+
+    <script>
+        function calculo() {
+            let altura = document.getElementById("altura").value;
+            let peso = document.getElementById("peso").value;
+
+            if (altura == "") {
+                alert(`Informe a altura.`);
+            }
+            else if (peso == "") {
+                alert(`Informe o peso.`)
+            }
+            else {
+                let soma = Number(peso) / (Number(altura) ** 2);
+                document.getElementById("txtSoma").value = soma.toFixed(1).replace(".", ",");
+
+                if(soma < 18.5) {
+                    document.getElementById("abaixo").style.backgroundColor='lime'
+                }
+                else if (soma <= 24.9) {
+                    document.getElementById("ideal").style.backgroundColor='green'
+                }
+                else if (soma <= 29.9) {
+                    document.getElementById("sobre").style.backgroundColor='yellow'
+                }
+                else if (soma <= 34.9) {
+                    document.getElementById("obeso").style.backgroundColor='orange'
+                }
+                else if (soma <= 40) {
+                    document.getElementById("severo").style.backgroundColor='red'
+                }
+                else {
+                    document.getElementById("morbido").style.backgroundColor='black'
+                }
+            }
+
+        }
+        function limpar() {
+            document.getElementById("altura").value = "";
+            document.getElementById("peso").value = "";
+            document.getElementById("abaixo").style.backgroundColor='white';
+            document.getElementById("ideal").style.backgroundColor='white';
+            document.getElementById("sobre").style.backgroundColor='white';
+            document.getElementById("obeso").style.backgroundColor='white';
+            document.getElementById("severo").style.backgroundColor='white';
+            document.getElementById("morbido").style.backgroundColor='white';
+        }
+    </script>
+</head>
+<style>
+    body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    #calculadora{
+        margin: auto
+    }
+    input[type="button"] {
+        background-color: red;
+        color: white;
+        border: 1px solid black;
+    }
+
+    #tabela {
+        margin:200px auto;
+    }
+    #tabela div {
+        border: 1px solid black;
+    }
+
+   .parts {
+    padding: 5px;
+   }
+</style>
+
+<body>
+    <div id="calculadora">
+        <form id="form"action="">
+            <div class="parts">
+                <label for="num2">Peso</label>
+                <input type="number" name="num2" id="peso">
+            </div>
+            <div class="parts">
+                <label for="num">Altura</label>
+                <input type="number" name="num" id="altura">
+            </div>
+            <div class="parts">
+                <label for="soma">Calcúlo</label>
+                <input type="number" name="soma" id="txtSoma" disabled>
+            </div>
+            <div class="parts">
+                <input type="button" value="Calcular" onclick="calculo()">
+                <input type="button" value="Limpar" onclick="limpar()">
+            </div>
+        </form>
+    </div>
+    <div id="tabela">
+        <div id="abaixo">
+            <p >Abaixo do Peso</p>
+        </div>
+        <div id="ideal">
+            <p>Peso Ideal</p>
+        </div>
+        <div id="sobre">
+            <p>Sobre-peso</p>
+        </div>
+        <div id="obeso">
+            <p>Obeso</p>
+        </div>
+        <div id="severo">
+            <p>Obeso Severo</p>
+        </div>
+        <div id="morbido">
+            <p>Obeso Mórbido</p>
+        </div>
+    </div>
+</body>
+
+</html>
