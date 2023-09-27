@@ -23,9 +23,9 @@
                     document.getElementById("resultado").innerHTML = `<p> Valor impossível de calcular</p>`
                 }
                 else {
-                        let x1 = (-valorB + Math.sqrt(delta)) / (2 * valorA);
-                        let x2 = (-valorB - Math.sqrt(delta)) / (2 * valorA);
-                        document.getElementById("resultado").innerHTML = `<h1> O valor de delta é ${delta} </h1> <p>O resultado do coeficiente x1 é ${x1}. <br> O resultado do coeficiente x2 é ${x2}.</p>`
+                    let x1 = (-valorB + Math.sqrt(delta)) / (2 * valorA);
+                    let x2 = (-valorB - Math.sqrt(delta)) / (2 * valorA);
+                    document.getElementById("resultado").innerHTML = `<h1> O valor de delta é ${delta} </h1> <p>O resultado do coeficiente x1 é ${x1}. <br> O resultado do coeficiente x2 é ${x2}.</p>`
                 }
             }
         }
@@ -42,6 +42,7 @@
             background-color: rgb(66, 104, 91);
             display: grid;
         }
+
         #calculadora {
             padding: 10px;
             margin: auto;
@@ -49,9 +50,11 @@
             border-radius: 4px;
             box-shadow: 10px 5px 5px rgb(102, 158, 139);
         }
+
         #resultado h1 {
             text-align: center;
         }
+
         .parts {
             padding: 5px;
         }
@@ -60,28 +63,29 @@
 
 <body>
     <div id="calculadora">
-        <div class="parts">
-            <label for="txtValorA">Valor de a</label> <br>
-            <input type="number" id="txtValorA">
-        </div>
-        <div class="parts">
-            <label for="txtValorB">Valor de b</label> <br>
-            <input type="number" id="txtValorB">
-        </div>
-        <div class="parts">
-            <label for="txtValorC">Valor de c</label> <br>
-            <input type="number" id="txtValorC">
-        </div>
-        <div id="resultado">
+        <form action="">
+            <div class="parts">
+                <label for="txtValorA">Valor de a</label> <br>
+                <input type="number" id="txtValorA">
+            </div>
+            <div class="parts">
+                <label for="txtValorB">Valor de b</label> <br>
+                <input type="number" id="txtValorB">
+            </div>
+            <div class="parts">
+                <label for="txtValorC">Valor de c</label> <br>
+                <input type="number" id="txtValorC">
+            </div>
+            <div id="resultado">
 
-        </div>
-        <div class="parts">
-            <input type="button" value="Calcular" onclick="bhaskara()">
-            <input type="button" value="Limpar" onclick="limpar()">
-        </div>
-
-
+            </div>
+            <div class="parts">
+                <input type="button" value="Calcular" onclick="bhaskara()">
+                <input type="button" value="Limpar" onclick="limpar()">
+            </div>
+        </form>
     </div>
+
 </body>
 
 </html>
