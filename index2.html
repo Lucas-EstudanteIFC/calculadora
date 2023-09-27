@@ -1,0 +1,87 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula de Bhaskara</title>
+    <script>
+        function bhaskara() {
+            let valorA = Number(document.getElementById("txtValorA").value);
+            let valorB = Number(document.getElementById("txtValorB").value);
+            let valorC = Number(document.getElementById("txtValorC").value);;
+            if (valorA == "" || valorB == "" || valorC == "") {
+                document.getElementById("resultado").innerHTML = `<p>Valor inválido detectado</p>`
+            }
+            else if (valorA == 0) {
+                document.getElementById("resultado").innerHTML = `<p> Valor impossível de calcular</p>`
+            }
+            else {
+                let delta = (valorB ** 2) - 4 * valorA * valorC;
+                if (delta < 0) {
+                    document.getElementById("resultado").innerHTML = `<p> Valor impossível de calcular</p>`
+                }
+                else {
+                        let x1 = (-valorB + Math.sqrt(delta)) / (2 * valorA);
+                        let x2 = (-valorB - Math.sqrt(delta)) / (2 * valorA);
+                        document.getElementById("resultado").innerHTML = `<h1> O valor de delta é ${delta} </h1> <p>O resultado do coeficiente x1 é ${x1}. <br> O resultado do coeficiente x2 é ${x2}.</p>`
+                }
+            }
+        }
+
+        function limpar() {
+            document.getElementById("txtValorA").value = "";
+            document.getElementById("txtValorB").value = "";
+            document.getElementById("txtValorC").value = "";
+            document.getElementById("resultado").innerHTML = "";
+        }
+    </script>
+    <style>
+        body {
+            background-color: rgb(66, 104, 91);
+            display: grid;
+        }
+        #calculadora {
+            padding: 10px;
+            margin: auto;
+            background-color: rgb(61, 196, 151);
+            border-radius: 4px;
+            box-shadow: 10px 5px 5px rgb(102, 158, 139);
+        }
+        #resultado h1 {
+            text-align: center;
+        }
+        .parts {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="calculadora">
+        <div class="parts">
+            <label for="txtValorA">Valor de a</label> <br>
+            <input type="number" id="txtValorA">
+        </div>
+        <div class="parts">
+            <label for="txtValorB">Valor de b</label> <br>
+            <input type="number" id="txtValorB">
+        </div>
+        <div class="parts">
+            <label for="txtValorC">Valor de c</label> <br>
+            <input type="number" id="txtValorC">
+        </div>
+        <div id="resultado">
+
+        </div>
+        <div class="parts">
+            <input type="button" value="Calcular" onclick="bhaskara()">
+            <input type="button" value="Limpar" onclick="limpar()">
+        </div>
+
+
+    </div>
+</body>
+
+</html>
